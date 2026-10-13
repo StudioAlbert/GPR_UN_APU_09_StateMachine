@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Companion.TurnBased
 {
     /// <summary>
-    /// Démo 4 — deux machines emboîtées, comme dans le schéma du cours.
+    /// Scène 04 — deux machines emboîtées, comme dans le schéma du cours.
     /// En haut, la partie : PlayerTurn, AiTurn, GameOver. En bas, chaque tourelle :
     /// Waiting, Active, Empty. Entrer dans un tour active la tourelle de ce camp
     /// (<c>OnEnter</c>), et la transition du haut lit l'état du bas.
@@ -11,7 +11,7 @@ namespace Companion.TurnBased
     /// Deux tourelles se tirent dessus. Le joueur passe la main avec le bouton
     /// « Tour suivant » ; l'IA passe quand elle est à court de munitions.
     /// </summary>
-    public class TurnBasedDemo : MonoBehaviour, IStateMachineProbe
+    public class TurnBasedStateMachine : MonoBehaviour, IStateMachineProbe
     {
         [SerializeField] private Turret playerTurret;
         [SerializeField] private Turret aiTurret;
@@ -28,8 +28,8 @@ namespace Companion.TurnBased
         public Core.IState CurrentState => _machine.CurrentState;
 
         public string Details =>
-            $"joueur {playerTurret.Ammo} obus / {playerTurret.Hull} PV · " +
-            $"IA {aiTurret.Ammo} obus / {aiTurret.Hull} PV";
+            $"joueur {playerTurret.Ammo} munitions / {playerTurret.Hull} PV · " +
+            $"IA {aiTurret.Ammo} munitions / {aiTurret.Hull} PV";
 
         private void Awake()
         {

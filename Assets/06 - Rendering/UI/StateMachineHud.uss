@@ -1,0 +1,108 @@
+/* Habillage du panneau de debug. Aucune donnée ici : que de la présentation.
+   Les valeurs viennent du prototype (canvas Design APU-09). */
+
+.hud {
+    flex-grow: 1;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Le bandeau du haut : contexte à gauche, état courant à droite. */
+.hud__top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.hud__column {
+    align-items: flex-start;
+}
+
+.hud__column--right {
+    align-items: flex-end;
+}
+
+/* --- L'encadré commun : bord fin, fond translucide --- */
+
+.box {
+    background-color: rgba(84, 83, 83, 0.2);
+    border-color: rgb(176, 176, 176);
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 5px;
+    color: rgb(176, 176, 176);
+}
+
+/* --- Colonne de gauche : le contexte, puis les commandes --- */
+
+.box--context {
+    width: 402px;
+    font-size: 32px;
+    -unity-font-style: bold;
+    -unity-text-align: upper-left;
+    white-space: normal;
+}
+
+.box--controls {
+    width: 400px;
+    margin-top: 12px;
+    font-size: 20px;
+    -unity-font-style: italic;
+    color: rgb(219, 76, 9);
+    border-color: rgb(219, 76, 9);
+    background-color: rgba(166, 87, 50, 0.2);
+    white-space: normal;
+}
+
+/* --- Colonne de droite : l'état courant, ce qui crie --- */
+
+.box--state {
+    width: 260px;
+    font-size: 32px;
+    -unity-text-align: upper-right;
+    white-space: normal;
+}
+
+.box--details {
+    width: 260px;
+    margin-top: 12px;
+    font-size: 17px;
+    -unity-text-align: upper-right;
+    white-space: normal;
+}
+
+/* --- Les machines imbriquées : un panneau par machine, en bas, aux deux coins --- */
+
+.hud__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.card {
+    min-width: 193px;
+    background-color: rgba(57, 57, 57, 0.2);
+}
+
+.card__name {
+    font-size: 32px;
+    -unity-font-style: bold;
+    color: rgb(176, 176, 176);
+    white-space: normal;
+}
+
+.card__state {
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: rgb(219, 76, 9);
+}
+
+.card__detail {
+    font-size: 17px;
+    color: rgb(176, 176, 176);
+    white-space: normal;
+}
+
+.hidden {
+    display: none;
+}

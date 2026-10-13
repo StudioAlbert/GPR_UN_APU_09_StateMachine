@@ -5,12 +5,12 @@ using UnityEngine.InputSystem;
 namespace Companion.Hero
 {
     /// <summary>
-    /// Démo 1 — Grounded, Jumping, Landing.
+    /// Scène 01 — Grounded, Jumping, Landing.
     /// Un cube saute à la barre d'espace, puis reste bloqué en Landing le temps
     /// d'une coroutine : la transition de retour attend un drapeau, pas un chrono
     /// recopié dans l'état.
     /// </summary>
-    public class HeroDemo : MonoBehaviour, IStateMachineProbe
+    public class HeroStateMachine : MonoBehaviour, IStateMachineProbe
     {
         [SerializeField] private float jumpHeight = 2.5f;
         [SerializeField] private float jumpDuration = 0.6f;
@@ -82,8 +82,8 @@ namespace Companion.Hero
 
     public class GroundedState : Core.IState
     {
-        private readonly HeroDemo _hero;
-        public GroundedState(HeroDemo hero) => _hero = hero;
+        private readonly HeroStateMachine _hero;
+        public GroundedState(HeroStateMachine hero) => _hero = hero;
 
         public void OnEnter() { }
         public void OnExit() { }
@@ -92,8 +92,8 @@ namespace Companion.Hero
 
     public class JumpingState : Core.IState
     {
-        private readonly HeroDemo _hero;
-        public JumpingState(HeroDemo hero) => _hero = hero;
+        private readonly HeroStateMachine _hero;
+        public JumpingState(HeroStateMachine hero) => _hero = hero;
 
         public void OnEnter() => _hero.BeginJump();
         public void OnExit() { }
@@ -102,8 +102,8 @@ namespace Companion.Hero
 
     public class LandingState : Core.IState
     {
-        private readonly HeroDemo _hero;
-        public LandingState(HeroDemo hero) => _hero = hero;
+        private readonly HeroStateMachine _hero;
+        public LandingState(HeroStateMachine hero) => _hero = hero;
 
         public void OnEnter() => _hero.BeginLanding();
         public void OnExit() { }

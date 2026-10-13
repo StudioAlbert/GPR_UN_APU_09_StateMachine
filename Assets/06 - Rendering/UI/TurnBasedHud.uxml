@@ -1,0 +1,27 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/06%20-%20Rendering/UI/StateMachineHud.uss?fileID=7433441132597879392&amp;guid=5467e3ff1f313d945889d68a1d4bfd74&amp;type=3#StateMachineHud"/>
+    <ui:VisualElement name="hud" picking-mode="Ignore" class="hud">
+        <ui:VisualElement name="top" picking-mode="Ignore" class="hud__top">
+            <ui:VisualElement name="left" picking-mode="Ignore" class="hud__column">
+                <ui:Label name="context" text="context" picking-mode="Ignore" class="box box--context"/>
+                <ui:Label name="controls" text="controls" picking-mode="Ignore" class="box box--controls"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="right" picking-mode="Ignore" class="hud__column hud__column--right">
+                <ui:Label name="state-name" text="State name" picking-mode="Ignore" class="box box--state" style="color: rgb(219, 76, 9);"/>
+                <ui:Label name="state-details" text="Details" picking-mode="Ignore" class="box box--details"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="bottom" picking-mode="Ignore" class="hud__bottom">
+            <ui:VisualElement name="card-player" picking-mode="Ignore" class="box card">
+                <ui:Label name="card-name" text="Tourelle joueur" picking-mode="Ignore" class="card__name"/>
+                <ui:Label name="card-state" text="State" picking-mode="Ignore" class="card__state"/>
+                <ui:Label name="card-detail" text="munitions" picking-mode="Ignore" class="card__detail"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="card-ai" picking-mode="Ignore" class="box card">
+                <ui:Label name="card-name" text="Tourelle IA" picking-mode="Ignore" class="card__name"/>
+                <ui:Label name="card-state" text="State" picking-mode="Ignore" class="card__state"/>
+                <ui:Label name="card-detail" text="munitions" picking-mode="Ignore" class="card__detail"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

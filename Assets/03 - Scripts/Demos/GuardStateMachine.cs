@@ -4,12 +4,12 @@ using UnityEngine.InputSystem;
 namespace Companion.Guard
 {
     /// <summary>
-    /// Démo 2 — Idle, Patrolling, OnAlarm.
+    /// Scène 02 — Idle, Patrolling, OnAlarm.
     /// Le cas d'usage de <c>AddAnyTransition</c> : l'alarme interrompt le garde
     /// quoi qu'il soit en train de faire, et aucune des deux autres transitions
     /// n'a besoin de la connaître.
     /// </summary>
-    public class GuardDemo : MonoBehaviour, IStateMachineProbe
+    public class GuardStateMachine : MonoBehaviour, IStateMachineProbe
     {
         [SerializeField] private Transform pointA;
         [SerializeField] private Transform pointB;
@@ -73,11 +73,11 @@ namespace Companion.Guard
 
     public class IdleState : Core.IState
     {
-        private readonly GuardDemo _guard;
+        private readonly GuardStateMachine _guard;
         private readonly float _pause;
         private float _elapsed;
 
-        public IdleState(GuardDemo guard, float pause)
+        public IdleState(GuardStateMachine guard, float pause)
         {
             _guard = guard;
             _pause = pause;
@@ -99,10 +99,10 @@ namespace Companion.Guard
 
     public class PatrollingState : Core.IState
     {
-        private readonly GuardDemo _guard;
+        private readonly GuardStateMachine _guard;
         private readonly float _speed;
 
-        public PatrollingState(GuardDemo guard, float speed)
+        public PatrollingState(GuardStateMachine guard, float speed)
         {
             _guard = guard;
             _speed = speed;
@@ -124,10 +124,10 @@ namespace Companion.Guard
 
     public class OnAlarmState : Core.IState
     {
-        private readonly GuardDemo _guard;
+        private readonly GuardStateMachine _guard;
         private float _elapsed;
 
-        public OnAlarmState(GuardDemo guard) => _guard = guard;
+        public OnAlarmState(GuardStateMachine guard) => _guard = guard;
 
         public void OnEnter()
         {

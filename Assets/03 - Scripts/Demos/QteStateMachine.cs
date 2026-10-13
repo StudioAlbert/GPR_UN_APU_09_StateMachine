@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Companion.Qte
 {
     /// <summary>
-    /// Démo 3 — Invite, Confirm, Fail, Success, Closing.
+    /// Scène 03 — Invite, Confirm, Fail, Success, Closing.
     /// Un état = un panneau d'UI. <c>OnEnter</c> l'affiche, <c>OnExit</c> le cache :
     /// il n'y a aucun <c>SetActive(false)</c> ailleurs dans le code.
     /// Les transitions sont déclenchées par les boutons du Canvas.
@@ -12,7 +12,7 @@ namespace Companion.Qte
     /// même chose. La machine indexe ses transitions par <c>GetType()</c>, donc deux
     /// états de la même classe partageraient leurs transitions.
     /// </summary>
-    public class QteDemo : MonoBehaviour, IStateMachineProbe
+    public class QteStateMachine : MonoBehaviour, IStateMachineProbe
     {
         [Header("Un panneau par état")]
         [SerializeField] private GameObject invitePanel;

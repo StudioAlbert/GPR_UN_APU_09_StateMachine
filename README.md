@@ -49,9 +49,25 @@ et le tour par tour.
 
 ## Le panneau de debug
 
-`StateMachineDebugPanel` (IMGUI) liste chaque machine de la scène et son état courant. Il
-trouve ses sources tout seul : une démo n'a qu'à implémenter `IStateMachineProbe`
-(`MachineName`, `CurrentState`, `Details`). Rien à câbler quand on ajoute une scène.
+Le HUD est **authoré en UI Toolkit**, comme l'UI d'un vrai jeu : le markup dans un document,
+l'habillage dans une feuille de style, et un script qui ne fait que lire les machines et
+poser du texte.
+
+| Fichier | Rôle |
+|---|---|
+| `Assets/06 - Rendering/UI/StateMachineHud.uxml` | le document des scènes 01 à 03 : contexte, commandes, état courant, détails |
+| `Assets/06 - Rendering/UI/TurnBasedHud.uxml` | celui de la scène 04 : le même cadre, plus les deux panneaux des tourelles |
+| `Assets/06 - Rendering/UI/StateMachineHud.uss` | l'habillage, partagé — encadrés à bord fin sur fond uni |
+| `Assets/03 - Scripts/UI/StateMachineHud.cs` | le présentateur : `Q` et `.text`, rien d'autre |
+
+La machine désignée dans l'Inspector s'affiche **en grand**, en haut à droite. Les machines
+imbriquées ont chacune **leur panneau écrit dans le document** — les deux tourelles existent
+dans la scène, donc leurs deux panneaux existent dans l'UXML, en bas à gauche et en bas à
+droite. L'Inspector dit seulement quelle machine va dans quel panneau : **rien n'est créé ni
+cloné à l'exécution**. Une machine n'a qu'à implémenter `IStateMachineProbe` (`MachineName`,
+`CurrentState`, `Details`) pour être affichable.
+
+Les quatre caméras sont en **fond uni** `#151515` : pas de skybox derrière une démo.
 
 ## Supports de la séance
 

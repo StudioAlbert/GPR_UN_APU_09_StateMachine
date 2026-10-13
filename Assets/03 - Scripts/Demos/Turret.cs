@@ -27,7 +27,7 @@ namespace Companion.TurnBased
 
         public string MachineName => label;
         public Core.IState CurrentState => _machine.CurrentState;
-        public string Details => "";
+        public string Details => $"munitions {Ammo} · {Hull} PV";
 
         private void Awake()
         {
